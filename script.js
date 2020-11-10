@@ -83,6 +83,14 @@ multiplayer.onclick = function (event) {
     wordInput.select();
 }
 
+single.onclick = function (event) {
+    event.preventDefault();
+    modal.style.display = "none";
+    singleMode = true;
+    h1.innerHTML = "Виселица";
+    newGame();
+}
+
 setButton.onclick = function (event) {
     event.preventDefault();
     modal.style.display = "block";
