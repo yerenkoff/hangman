@@ -15,19 +15,47 @@ body {
   height: 100%;
 }
 
+body > form input {
+  text-decoration: underline;
+  -webkit-text-decoration-color: transparent;
+          text-decoration-color: transparent;
+}
+
+body > form input:focus {
+  caret-color: transparent;
+  -webkit-animation-name: letterBlink;
+          animation-name: letterBlink;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  animation-direction: alternate-reverse;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
 h1 {
-  font-size: 30px;
+  font-size: 25px;
+  line-height: 40px;
+  font-weight: normal;
+  word-break: break-word;
 }
 
 h2 {
   font-size: 25px;
+  letter-spacing: 3px;
+  background: #fff;
+  border-radius: 4px;
+  padding: 5px;
+  display: inline-block;
+  font-weight: normal;
+  line-height: 30px;
+  word-break: break-all;
 }
 
 h1, h2 {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Montserrat", sans-serif;
   color: #555;
   text-align: center;
-  margin: 40px auto;
+  margin: 20px auto;
 }
 
 img {
@@ -35,71 +63,234 @@ img {
   max-height: 300px;
   max-width: 100%;
   margin: auto;
-  -webkit-box-shadow: 0 0px 100px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 0px 100px rgba(0, 0, 0, 0.2);
-  border: 1px solid #555;
+  -webkit-box-shadow: inset 0 0px 100px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 0 0px 100px rgba(0, 0, 0, 0.1);
   border-radius: 150px;
 }
 
-section {
+form {
+  text-align: center;
   background: rgba(255, 255, 255, 0.7);
   width: 90%;
   max-width: 600px;
   margin: 50px auto;
-  border-radius: 5px;
+  border-radius: 4px;
   -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
           box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
   padding: 0 40px 40px;
   overflow: hidden;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  position: relative;
+}
+
+form #gearButton {
+  font-size: 30px;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 80px;
+  width: 80px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+form #gearButton:hover {
+  -webkit-filter: brightness(1.1);
+          filter: brightness(1.1);
+}
+
+@-webkit-keyframes letterBlink {
+  0% {
+    -webkit-text-decoration-color: transparent;
+            text-decoration-color: transparent;
+  }
+  100% {
+    -webkit-text-decoration-color: #ccc;
+            text-decoration-color: #ccc;
+  }
+}
+
+@keyframes letterBlink {
+  0% {
+    -webkit-text-decoration-color: transparent;
+            text-decoration-color: transparent;
+  }
+  100% {
+    -webkit-text-decoration-color: #ccc;
+            text-decoration-color: #ccc;
+  }
 }
 
 input {
+  vertical-align: middle;
   margin: auto;
-  width: 90%;
-  max-width: 300px;
+  width: 80px;
+  text-align: center;
   display: block;
-  border: 1px solid #555;
-  line-height: 30px;
-  padding: 0 5px;
-  border-radius: 10px;
+  font-weight: normal;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+  line-height: 80px;
+  border-radius: 4px;
   outline: none;
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Montserrat", sans-serif;
   color: #555;
-  font-size: 16px;
+  font-size: 40px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+  caret-color: #555;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input::-webkit-input-placeholder {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #ccc;
+}
+
+input:-ms-input-placeholder {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #ccc;
+}
+
+input::-ms-input-placeholder {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #ccc;
+}
+
+input::placeholder {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #ccc;
 }
 
 .buttons {
   text-align: center;
-  margin: 10px auto 0;
+  margin: 20px auto;
 }
 
-.buttons button {
+button {
   outline: none;
-  line-height: 30px;
+  line-height: 40px;
   padding: 0 10px;
-  border: 1px solid #555;
-  border-radius: 10px;
-  background: #fff;
-  font-family: 'Source Code Pro', monospace;
+  border: none;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  font-family: "Montserrat", sans-serif;
   color: #555;
   font-size: 16px;
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   margin: 0 2px 10px;
+  -webkit-box-shadow: 0 0px 5px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 0px 5px rgba(0, 0, 0, 0.05);
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
-.buttons button:hover {
-  background: rgba(255, 255, 255, 0.7);
+button:hover {
+  background: #fff;
   color: #000;
+  -webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
 }
 
 p {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Montserrat", sans-serif;
   color: #555;
   font-size: 16px;
   text-align: center;
+}
+
+.modal, .wordModal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.modal form, .wordModal form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 40px;
+}
+
+.modal form h3, .wordModal form h3 {
+  font-family: "Montserrat", sans-serif;
+  color: #555;
+}
+
+.modal form .buttons, .wordModal form .buttons {
+  margin-bottom: 0;
+}
+
+.wordModal {
+  display: block;
+  display: none;
+}
+
+.wordModal h3 {
+  margin-bottom: 20px;
+}
+
+.wordModal input {
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: left;
+  max-width: 300px;
+  padding: 0 10px;
+  font-size: 16px;
+  line-height: 40px;
+}
+
+@media (max-width: 600px) {
+  form {
+    width: 95%;
+    padding: 0 10px 40px;
+  }
+  form img {
+    width: 50%;
+  }
+  form input {
+    width: 60px;
+    line-height: 60px;
+    font-size: 35px;
+    caret-color: #555;
+  }
 }
 /*# sourceMappingURL=style.css.map */
